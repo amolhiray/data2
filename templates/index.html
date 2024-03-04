@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('.ipynb_checkpoints\tloan.jpg'); /* Specify the path to your background image */
+            background-size: cover;
+        }
+        form {
+            text-align: center;
+            background-color: rgba(237, 76, 76, 0.7); /* Adjust the opacity as needed */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loan Approval Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="Dependents">Dependents:</label>
+        <input type="text" id="Dependents" name="Dependents"><br><br>
+
+        <label for="Education">Education:</label>
+        <select id="Education" name="Education">
+            <option value="0">Not Graduate</option>
+            <option value="1">Graduate</option>
+        </select><br><br>
+
+        <label for="Self_Employed">Self Employed:</label>
+        <select id="Self_Employed" name="Self_Employed">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="ApplicantIncome">Applicant Income:</label>
+        <input type="text" id="ApplicantIncome" name="ApplicantIncome"><br><br>
+
+        <label for="CoapplicantIncome">Coapplicant Income:</label>
+        <input type="text" id="CoapplicantIncome" name="CoapplicantIncome"><br><br>
+
+        <label for="LoanAmount">Loan Amount:</label>
+        <input type="text" id="LoanAmount" name="LoanAmount"><br><br>
+
+        <label for="Loan_Amount_Term">Loan Amount Term:</label>
+        <input type="text" id="Loan_Amount_Term" name="Loan_Amount_Term"><br><br>
+
+        <label for="Credit_History">Credit History:</label>
+        <select id="Credit_History" name="Credit_History">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br><br>
+
+        <label for="Property_Area">Property Area:</label>
+        <select id="Property_Area" name="Property_Area">
+            <option value="0">Rural</option>
+            <option value="1">Semiurban</option>
+            <option value="2">Urban</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <p>{{ prediction_text }}</p>
+    {% endif %}
+</body>
+</html>
